@@ -7,10 +7,10 @@ import lombok.*;
 
 @Entity
 @Table(name = "product")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class ProductEntity {
 
     @Id
@@ -38,11 +38,11 @@ public class ProductEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonManagedReference("user-product")
+    @JsonBackReference("user-product")
     private UserEntity user;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    @JsonManagedReference("category-product")
+    @JsonBackReference("category-product")
     private CategoryEntity category;
 }

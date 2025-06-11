@@ -2,6 +2,7 @@ package com.gestock.GestockBackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,10 +10,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "category")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class CategoryEntity {
 
     @Id
@@ -24,6 +25,6 @@ public class CategoryEntity {
     private String name;
 
     @OneToMany(mappedBy = "category")
-    @JsonBackReference("category-product")
+    @JsonManagedReference("category-product")
     private List<ProductEntity> products;
 }

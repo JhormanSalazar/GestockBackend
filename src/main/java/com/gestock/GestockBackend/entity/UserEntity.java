@@ -2,6 +2,7 @@ package com.gestock.GestockBackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,10 +10,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "app_user")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class UserEntity {
 
     @Id
@@ -31,6 +32,6 @@ public class UserEntity {
 
     // Relación inversa con productos
     @OneToMany(mappedBy = "user")
-    @JsonBackReference("user-product")
+    @JsonManagedReference("user-product")
     private List<ProductEntity> products;
 }

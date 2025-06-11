@@ -2,6 +2,7 @@ package com.gestock.GestockBackend.controller;
 
 import com.gestock.GestockBackend.entity.CategoryEntity;
 import com.gestock.GestockBackend.service.CategoryService;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CategoryEntity> createCategory(@RequestBody CategoryEntity category) {
         CategoryEntity savedCategory = categoryService.saveCategory(category);
         return ResponseEntity.ok(savedCategory);
