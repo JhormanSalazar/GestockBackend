@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import main.java.com.gestock.GestockBackend.entity.BusinessEntity;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,16 +24,23 @@ public class UserEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String username;
 
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "password_hash", nullable = false)
     private String password;
 
     // Relación inversa con productos
-    @OneToMany(mappedBy = "user")
-    @JsonManagedReference("user-product")
-    private List<ProductEntity> products;
+    @ManyToOne
+    @JoinColumn(name = "business_id")
+    private BusinessEntity business;
+
+    @Column(name = "is_owner", nullable = false)
+    private boolean isOwner;
+
+    
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 }

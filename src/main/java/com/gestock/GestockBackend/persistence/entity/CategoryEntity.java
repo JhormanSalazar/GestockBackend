@@ -5,11 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import main.java.com.gestock.GestockBackend.entity.BusinessEntity;
 
 import java.util.List;
 
 @Entity
-@Table(name = "category")
+@Table(name = "categories")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,6 +24,13 @@ public class CategoryEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "biseness_id")
+    @JsonBackReference(value = "business-category")
+    private BusinessEntity business;
 
     @OneToMany(mappedBy = "category")
     @JsonManagedReference("category-product")
