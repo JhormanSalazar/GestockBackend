@@ -1,10 +1,9 @@
+package com.gestock.GestockBackend.persistence.entity;
 
-package com.gestock.GestockBackend.entity;
-
-import com.gestock.GestockBackend.entity.ProductEntity;
-import com.gestock.GestockBackend.entity.WarehouseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "inventory_items")

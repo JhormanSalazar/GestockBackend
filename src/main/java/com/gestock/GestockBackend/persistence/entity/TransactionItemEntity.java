@@ -1,8 +1,9 @@
-package com.gestock.GestockBackend.entity;
+package com.gestock.GestockBackend.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import com.gestock.GestockBackend.entity.TransactionEntity;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "transaction_items")
@@ -21,7 +22,7 @@ public class TransactionItemEntity {
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    private ProductEntity product;
 
     @Column(nullable = false)
     private int quantity;

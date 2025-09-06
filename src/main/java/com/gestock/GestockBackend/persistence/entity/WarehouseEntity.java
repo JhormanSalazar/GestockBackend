@@ -1,8 +1,7 @@
-package com.gestock.GestockBackend.entity;
+package com.gestock.GestockBackend.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import main.java.com.gestock.GestockBackend.entity.BusinessEntity;
 
 @Entity
 @Table(name = "warehouses")

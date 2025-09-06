@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.controller;
 
-import com.gestock.GestockBackend.entity.CategoryEntity;
+import com.gestock.GestockBackend.persistence.entity.CategoryEntity;
 import com.gestock.GestockBackend.service.CategoryService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

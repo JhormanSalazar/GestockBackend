@@ -1,7 +1,6 @@
-package com.gestock.GestockBackend.entity;
+package com.gestock.GestockBackend.persistence.entity;
 
 import java.time.LocalDateTime;
-import com.gestock.GestockBackend.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

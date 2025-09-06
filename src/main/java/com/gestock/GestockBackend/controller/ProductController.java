@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.controller;
 
-import com.gestock.GestockBackend.entity.ProductEntity;
+import com.gestock.GestockBackend.persistence.entity.ProductEntity;
 import com.gestock.GestockBackend.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,11 +47,8 @@ public class ProductController {
         ProductEntity existingProduct = existingProductOpt.get();
         existingProduct.setName(productDetails.getName());
         existingProduct.setDescription(productDetails.getDescription());
-        existingProduct.setAvailability(productDetails.getAvailability());
         existingProduct.setPrice(productDetails.getPrice());
-        existingProduct.setProductStock(productDetails.getProductStock());
         existingProduct.setProductImage(productDetails.getProductImage());
-        existingProduct.setUser(productDetails.getUser());
         existingProduct.setCategory(productDetails.getCategory());
 
         ProductEntity updatedProduct = productService.saveProduct(existingProduct);

@@ -1,9 +1,9 @@
-package com.gestock.GestockBackend.entity;
+package com.gestock.GestockBackend.persistence.entity;
 
-import com.gestock.GestockBackend.entity.BusinessEntity;
-import com.gestock.GestockBackend.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "transactions")

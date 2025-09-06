@@ -1,7 +1,7 @@
 package com.gestock.GestockBackend.service;
 
-import com.gestock.GestockBackend.entity.ProductEntity;
-import com.gestock.GestockBackend.repository.ProductRepository;
+import com.gestock.GestockBackend.persistence.entity.ProductEntity;
+import com.gestock.GestockBackend.persistence.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

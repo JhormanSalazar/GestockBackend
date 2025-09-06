@@ -1,13 +1,13 @@
-package com.gestock.GestockBackend.entity;
+package com.gestock.GestockBackend.persistence.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.gestock.GestockBackend.persistence.entity.BusinessEntity;
+import com.gestock.GestockBackend.persistence.entity.CategoryEntity;
+import com.gestock.GestockBackend.persistence.entity.SupplierEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import main.java.com.gestock.GestockBackend.entity.BusinessEntity;
 
 @Entity
 @Table(name = "products")
@@ -25,7 +25,7 @@ public class ProductEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(size = "100")
+    @Column(length = 100)
     private String sku;
 
     private String description;

@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.controller;
 
-import com.gestock.GestockBackend.entity.UserEntity;
+import com.gestock.GestockBackend.persistence.entity.UserEntity;
 import com.gestock.GestockBackend.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +45,6 @@ public class UserController {
         }
 
         UserEntity existingUser = existingUserOpt.get();
-        existingUser.setName(userDetails.getName());
         existingUser.setEmail(userDetails.getEmail());
 
         UserEntity updatedUser = userService.saveUser(existingUser);

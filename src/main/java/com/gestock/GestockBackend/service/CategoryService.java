@@ -1,7 +1,7 @@
 package com.gestock.GestockBackend.service;
 
-import com.gestock.GestockBackend.entity.CategoryEntity;
-import com.gestock.GestockBackend.repository.CategoryRepository;
+import com.gestock.GestockBackend.persistence.entity.CategoryEntity;
+import com.gestock.GestockBackend.persistence.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

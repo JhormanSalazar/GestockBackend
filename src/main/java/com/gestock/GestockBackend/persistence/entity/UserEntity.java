@@ -1,14 +1,9 @@
-package com.gestock.GestockBackend.entity;
+package com.gestock.GestockBackend.persistence.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
-import main.java.com.gestock.GestockBackend.entity.BusinessEntity;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
