@@ -1,7 +1,7 @@
 package com.gestock.GestockBackend.service;
 
-import com.gestock.GestockBackend.persistence.entity.UserEntity;
-import com.gestock.GestockBackend.persistence.repository.UserRepository;
+import com.gestock.GestockBackend.entity.User;
+import com.gestock.GestockBackend.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,17 +17,17 @@ public class UserService {
     }
 
     // Crear o actualizar usuario
-    public UserEntity saveUser(UserEntity user) {
+    public User saveUser(User user) {
         return userRepository.save(user);
     }
 
     // Obtener usuario por ID
-    public Optional<UserEntity> getUserById(Long id) {
+    public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
     // Obtener todos los usuarios
-    public List<UserEntity> getAllUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 

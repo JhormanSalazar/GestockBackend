@@ -22,7 +22,7 @@ El MVP se centrará en la **Gestión de Stock con contexto de Negocio y Almacén
 
 | Módulo | Entidades Implicadas | Funcionalidad Mínima Requerida |
 | :--- | :--- | :--- |
-| **Seguridad/Auth** | `Usuario`, `Rol`, `Negocio` | **Registro** de Negocio y Usuario Admin. **Login** mediante **JWT**. |
+| **Seguridad/Auth** | `Usuario`, `Role`, `Negocio` | **Registro** de Negocio y Usuario Admin. **Login** mediante **JWT**. |
 | **Maestros** | `Almacén` | **CRUD** de Almacén, asociado al Negocio. |
 | **Inventario** | `Producto` | **CRUD** de Producto. Listado de stock **filtrado por Negocio** y Almacén. |
 | **Transacciones** | `Movimiento` | Creación de **Movimiento** (`ENTRADA` / `SALIDA`). **Actualización transaccional** del `stock_actual`. |
@@ -48,7 +48,7 @@ La arquitectura sigue el patrón de **Capas** para garantizar la separación de 
                         │   ├── AuthController.java         // Login y registro
                         │   └── ...Controller.java          // Controladores para Negocio, Almacén, Producto, Movimiento
                         ├── **model/** // Entidades JPA y DTOs
-                        │   └── ...java                     // (Negocio, Almacen, Usuario, Rol, Producto, Movimiento)
+                        │   └── ...java                     // (Negocio, Almacen, Usuario, Role, Producto, Movimiento)
                         ├── **repository/** // Capa de Acceso a Datos (JPA Repositories)
                         │   └── ...Repository.java
                         ├── **service/** // Capa de Lógica de Negocio (Business Logic)
