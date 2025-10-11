@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.security;
 
-import com.gestock.GestockBackend.entity.User;
+import com.gestock.GestockBackend.model.User;
 import com.gestock.GestockBackend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

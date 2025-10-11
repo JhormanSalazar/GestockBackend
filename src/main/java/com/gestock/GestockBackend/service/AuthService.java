@@ -1,9 +1,9 @@
 package com.gestock.GestockBackend.service;
 
-import com.gestock.GestockBackend.dto.RegisterRequest;
-import com.gestock.GestockBackend.entity.Business;
-import com.gestock.GestockBackend.entity.Role;
-import com.gestock.GestockBackend.entity.User;
+import com.gestock.GestockBackend.model.dto.RegisterRequest;
+import com.gestock.GestockBackend.model.Business;
+import com.gestock.GestockBackend.model.Role;
+import com.gestock.GestockBackend.model.User;
 import com.gestock.GestockBackend.repository.BusinessRepository;
 import com.gestock.GestockBackend.repository.RoleRepository;
 import com.gestock.GestockBackend.repository.UserRepository;

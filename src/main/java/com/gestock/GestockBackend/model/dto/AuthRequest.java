@@ -1,4 +1,4 @@
-package com.gestock.GestockBackend.dto;
+package com.gestock.GestockBackend.model.dto;
 
 import lombok.*;
 

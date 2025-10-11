@@ -1,20 +1,22 @@
 package com.gestock.GestockBackend.service;
 
-import com.gestock.GestockBackend.entity.User;
+import com.gestock.GestockBackend.mappers.UserMapper;
+import com.gestock.GestockBackend.model.User;
+import com.gestock.GestockBackend.model.dto.UserResponseDto;
 import com.gestock.GestockBackend.repository.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-
+    private final UserMapper userMapper;
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     // Crear o actualizar usuario
     public User saveUser(User user) {
@@ -22,13 +24,20 @@ public class UserService {
     }
 
     // Obtener usuario por ID
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
+    public UserResponseDto getUserById(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("El ID no puede ser nulo");
+        }
+
+        User user = userRepository.findById(id)
+                .orElseThrow(()-> new EntityNotFoundException("Usuario no encontrado con ID: " + id));
+
+        return userMapper.toResponseDto(user);
     }
 
     // Obtener todos los usuarios
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserResponseDto> getAllUsers() {
+        return userMapper.toResponseDtoList(userRepository.findAll());
     }
 
     // Eliminar usuario por ID
