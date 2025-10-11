@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.repository;
 
-import com.gestock.GestockBackend.entity.Role;
+import com.gestock.GestockBackend.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

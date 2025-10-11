@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.security;
 
-import com.gestock.GestockBackend.entity.User;
+import com.gestock.GestockBackend.model.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,7 +24,7 @@ public class GestockUserDetails implements UserDetails {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.businessId = user.getBusiness().getId();
-        this.authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName()));
+        this.authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName().toUpperCase()));
         // Importante: Spring Security espera roles con el prefijo "ROLE_"
     }
 

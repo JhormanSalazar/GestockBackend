@@ -1,9 +1,9 @@
-package com.gestock.GestockBackend.entity;
+package com.gestock.GestockBackend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
+
 
 @Entity
 @Getter
@@ -22,9 +22,9 @@ public class Business {
 
     // Relación One-to-Many con Almacen (un negocio puede tener muchos almacenes)
     // @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
-    // private List<Warehouse> warehouses;
+    //private List<Warehouse> warehouses;
 
     // Relación One-to-Many con Usuario (un negocio puede tener muchos usuarios)
-    // @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
-    // private List<User> users;
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<User> users;
 }

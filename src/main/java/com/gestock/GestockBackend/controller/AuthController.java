@@ -1,9 +1,9 @@
 package com.gestock.GestockBackend.controller;
 
-import com.gestock.GestockBackend.dto.AuthRequest;
-import com.gestock.GestockBackend.dto.AuthResponse;
-import com.gestock.GestockBackend.dto.RegisterRequest;
-import com.gestock.GestockBackend.entity.User;
+import com.gestock.GestockBackend.model.dto.AuthRequest;
+import com.gestock.GestockBackend.model.dto.AuthResponse;
+import com.gestock.GestockBackend.model.dto.RegisterRequest;
+import com.gestock.GestockBackend.model.User;
 import com.gestock.GestockBackend.security.GestockUserDetails;
 import com.gestock.GestockBackend.security.JwtUtil;
 import com.gestock.GestockBackend.service.AuthService;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthController {
 
     @Autowired
