@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.controller;
 
-import com.gestock.GestockBackend.model.User;
+import com.gestock.GestockBackend.model.entity.User;
 import com.gestock.GestockBackend.model.dto.UserResponseDto;
 import com.gestock.GestockBackend.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +36,7 @@ public class UserController {
     // Crea un nuevo usuario
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        return ResponseEntity.ok(  userService.saveUser(user));
+        return ResponseEntity.ok(userService.saveUser(user));
     }
 
 

@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.security;
 
-import com.gestock.GestockBackend.model.User;
+import com.gestock.GestockBackend.model.entity.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,14 +1,11 @@
 package com.gestock.GestockBackend.mappers;
 
-import com.gestock.GestockBackend.model.Business;
-import com.gestock.GestockBackend.model.Role;
-import com.gestock.GestockBackend.model.User;
+import com.gestock.GestockBackend.model.entity.User;
 import com.gestock.GestockBackend.model.dto.UserCreateDto;
 import com.gestock.GestockBackend.model.dto.UserResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 

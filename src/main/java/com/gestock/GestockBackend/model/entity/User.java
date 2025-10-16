@@ -1,4 +1,6 @@
-package com.gestock.GestockBackend.model;
+package com.gestock.GestockBackend.model.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +21,7 @@ public class User {
 
     @ManyToOne(fetch = FetchType.EAGER) // EAGER para que cargue el negocio y rol al obtener el usuario
     @JoinColumn(name = "business_id", nullable = false)
+    @JsonBackReference(value = "business-users")
     private Business business;
 
     @ManyToOne(fetch = FetchType.EAGER) // EAGER para que cargue el negocio y rol al obtener el usuario
