@@ -1,4 +1,4 @@
-package com.gestock.GestockBackend.model;
+package com.gestock.GestockBackend.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,6 +1,6 @@
 package com.gestock.GestockBackend.repository;
 
-import com.gestock.GestockBackend.model.User;
+import com.gestock.GestockBackend.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

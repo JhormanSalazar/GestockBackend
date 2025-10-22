@@ -3,7 +3,7 @@ package com.gestock.GestockBackend.controller;
 import com.gestock.GestockBackend.model.dto.AuthRequest;
 import com.gestock.GestockBackend.model.dto.AuthResponse;
 import com.gestock.GestockBackend.model.dto.RegisterRequest;
-import com.gestock.GestockBackend.model.User;
+import com.gestock.GestockBackend.model.entity.User;
 import com.gestock.GestockBackend.security.GestockUserDetails;
 import com.gestock.GestockBackend.security.JwtUtil;
 import com.gestock.GestockBackend.service.AuthService;

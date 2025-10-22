@@ -1,7 +1,7 @@
 package com.gestock.GestockBackend.service;
 
 import com.gestock.GestockBackend.mappers.UserMapper;
-import com.gestock.GestockBackend.model.User;
+import com.gestock.GestockBackend.model.entity.User;
 import com.gestock.GestockBackend.model.dto.UserResponseDto;
 import com.gestock.GestockBackend.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
