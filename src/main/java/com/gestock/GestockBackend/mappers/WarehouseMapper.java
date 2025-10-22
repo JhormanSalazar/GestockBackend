@@ -24,5 +24,6 @@ public interface WarehouseMapper {
     @Mapping(target = "business", ignore = true) // Ignorar el mapeo del negocio aquí
     Warehouse toEntity(WarehouseResponseDto warehouseResponseDto);
 
+    @Mapping(target = "business", ignore = true)
     Warehouse toEntityFromRequest(WarehouseRequestDto warehouseRequestDto);
 }
