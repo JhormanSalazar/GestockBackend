@@ -8,21 +8,35 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@IdClass(WarehouseProductId.class)
 @Table(name = "warehouse_products")
 public class WarehouseProduct {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "product_id")
+    private Long productId;
+
+    @Id
+    @Column(name = "warehouse_id")
+    private Long warehouseId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "warehouse_id", nullable = false)
+    @JoinColumn(name = "warehouse_id", insertable = false, updatable = false)
     private Warehouse warehouse;
 
     @Column(nullable = false)
     private Integer stock;
+
+    // Constructor de conveniencia
+    public WarehouseProduct(Product product, Warehouse warehouse, Integer stock) {
+        this.product = product;
+        this.warehouse = warehouse;
+        this.productId = product.getId();
+        this.warehouseId = warehouse.getId();
+        this.stock = stock;
+    }
 }
