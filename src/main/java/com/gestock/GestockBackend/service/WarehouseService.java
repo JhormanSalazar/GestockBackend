@@ -8,6 +8,7 @@ import com.gestock.GestockBackend.model.entity.Warehouse;
 import com.gestock.GestockBackend.repository.BusinessRepository;
 import com.gestock.GestockBackend.repository.WarehouseRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,7 @@ public class WarehouseService {
     }
 
     // Crea un almacen y lo asocia a un negocio existente
+    @Transactional
     public WarehouseResponseDto createWarehouse(WarehouseRequestDto requestDto) {
         if (requestDto.getBusinessId() == null) {
             throw new IllegalArgumentException("Business ID cannot be null");
@@ -54,6 +56,7 @@ public class WarehouseService {
     }
 
     // Actualiza un almacen existente
+    @Transactional
     public WarehouseResponseDto updateWarehouse(Long id, WarehouseRequestDto requestDto) {
         Warehouse existingWarehouse = warehouseRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Warehouse not found with ID: " + id));
@@ -68,6 +71,7 @@ public class WarehouseService {
         return warehouseMapper.toResponseDto(warehouseRepository.save(existingWarehouse));
     }
 
+    @Transactional
     public void deleteWarehouse(Long id) {
         warehouseRepository.deleteById(id);
     }

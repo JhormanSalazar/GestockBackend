@@ -5,6 +5,7 @@ import com.gestock.GestockBackend.model.entity.Product;
 import com.gestock.GestockBackend.model.dto.ProductResponseDto;
 import com.gestock.GestockBackend.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class ProductService {
     private final ProductMapper productMapper;
     private final ProductRepository productRepository;
 
+    @Transactional
     public Product saveProduct(Product product) {
         return productRepository.save(product);
     }
@@ -30,6 +32,7 @@ public class ProductService {
         return productMapper.toResponseDtoList(productRepository.findAll());
     }
 
+    @Transactional
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
