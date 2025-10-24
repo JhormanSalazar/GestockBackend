@@ -12,7 +12,8 @@ import lombok.Setter;
 public class WarehouseResponseDto {
     private Long id;
     private String name;
-    private Long businessId; // Incluir el ID del negocio para el frontend
-    private Long businessName;
+    private Long businessId;
+    private String businessName;
     private String address;
+    private Integer maxCapacity;
 }

@@ -13,4 +13,5 @@ public class WarehouseRequestDto {
     private String name;
     private Long businessId;
     private String address;
+    private Integer maxCapacity;
 }
