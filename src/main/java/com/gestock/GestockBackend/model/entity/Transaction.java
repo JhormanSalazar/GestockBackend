@@ -23,8 +23,8 @@ public class Transaction {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
-            @JoinColumn(name = "product_id", referencedColumnName = "product_id", insertable = false, updatable = false),
-            @JoinColumn(name = "warehouse_id", referencedColumnName = "warehouse_id", insertable = false, updatable = false)
+            @JoinColumn(name = "product_id", referencedColumnName = "product_id"),
+            @JoinColumn(name = "warehouse_id", referencedColumnName = "warehouse_id")
     })
     private WarehouseProduct warehouseProduct;
 }
