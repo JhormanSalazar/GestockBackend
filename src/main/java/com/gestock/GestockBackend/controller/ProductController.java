@@ -28,13 +28,14 @@ public class ProductController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        // Solo ADMIN o BUSINESS_OWNER (configurado en SecurityConfig)
         return ResponseEntity.ok(productService.saveProduct(product));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+        // Solo ADMIN o BUSINESS_OWNER (configurado en SecurityConfig)
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }

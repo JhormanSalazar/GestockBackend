@@ -25,6 +25,9 @@ public class Warehouse {
     @Column
     private String address;
 
+    @Column(name = "max_capacity")
+    private Integer maxCapacity;
+
     @ManyToOne
     @JoinColumn(name = "business_id", nullable = false)
     @JsonBackReference(value = "business-warehouses")

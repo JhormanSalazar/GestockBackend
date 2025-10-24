@@ -67,6 +67,9 @@ public class WarehouseService {
         if (requestDto.getAddress() != null) {
             existingWarehouse.setAddress(requestDto.getAddress());
         }
+        if (requestDto.getMaxCapacity() != null) {
+            existingWarehouse.setMaxCapacity(requestDto.getMaxCapacity());
+        }
 
         return warehouseMapper.toResponseDto(warehouseRepository.save(existingWarehouse));
     }

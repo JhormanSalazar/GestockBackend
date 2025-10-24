@@ -53,20 +53,16 @@ public class AuthService {
         newBusiness.setName(request.getBusinessName());
         businessRepository.save(newBusiness);
 
-        // Buscar o crear el rol ADMIN (asumimos que existe o lo creamos si no)
-        Role adminRol = roleRepository.findByName("ADMIN")
-                .orElseGet(() -> {
-                    Role newRol = new Role();
-                    newRol.setName("ADMIN");
-                    return roleRepository.save(newRol);
-                });
+        // Buscar el rol BUSINESS_OWNER (debe existir por data.sql)
+        Role businessOwnerRole = roleRepository.findByName("BUSINESS_OWNER")
+                .orElseThrow(() -> new IllegalStateException("Rol BUSINESS_OWNER no encontrado. Verifique el script de inicialización."));
 
-        // Crear el usuario
+        // Crear el usuario como dueño de su negocio
         User newUser = new User();
         newUser.setEmail(request.getEmail());
         newUser.setPassword(passwordEncoder.encode(request.getPassword())); // ¡Cifrar la contraseña!
         newUser.setBusiness(newBusiness);
-        newUser.setRole(adminRol);
+        newUser.setRole(businessOwnerRole);
 
         return userRepository.save(newUser);
     }

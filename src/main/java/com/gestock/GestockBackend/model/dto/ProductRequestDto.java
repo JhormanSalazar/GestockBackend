@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 public class ProductRequestDto {
     private String name;
+    private String sku;
     private Double price;
     private String description;
 }
