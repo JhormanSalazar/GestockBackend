@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BusinessResponseDto {
-    private Long id;
+public class BusinessRequestDto {
     private String name;
 }
