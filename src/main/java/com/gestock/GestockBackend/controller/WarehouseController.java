@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
@@ -45,13 +44,13 @@ public class WarehouseController {
     }
 
     @GetMapping("/{warehouseId}")
-    public ResponseEntity<WarehouseResponseDto> getWarehouseById(@PathVariable Long warehouseId) {
+    public ResponseEntity<WarehouseResponseDto> getWarehouseById(@PathVariable("warehouseId") Long warehouseId) {
         return ResponseEntity.ok(warehouseService.getWarehouseById(warehouseId));
     }
 
     @GetMapping("/by-business/{businessId}")
     public ResponseEntity<List<WarehouseResponseDto>> getAllWarehousesByBusinessId(
-            @PathVariable Long businessId,
+            @PathVariable("businessId") Long businessId,
             Authentication authentication) {
 
         // Si no es ADMIN, validar que el businessId solicitado sea el del usuario
@@ -65,7 +64,7 @@ public class WarehouseController {
         return ResponseEntity.ok(warehouseService.getAllWarehousesByBusinessId(businessId));
     }
 
-    @PostMapping
+    @PostMapping(path = {"", "/"})
     public ResponseEntity<WarehouseResponseDto> createWarehouse(
             @RequestBody WarehouseRequestDto requestDto,
             Authentication authentication) {
@@ -84,7 +83,7 @@ public class WarehouseController {
 
     @PutMapping("/{warehouseId}")
     public ResponseEntity<WarehouseResponseDto> updateWarehouse(
-            @PathVariable Long warehouseId,
+        @PathVariable("warehouseId") Long warehouseId,
             @RequestBody WarehouseRequestDto requestDto,
             Authentication authentication) {
 
@@ -104,7 +103,7 @@ public class WarehouseController {
 
     @DeleteMapping("/{warehouseId}")
     public ResponseEntity<Void> deleteWarehouse(
-            @PathVariable Long warehouseId,
+        @PathVariable("warehouseId") Long warehouseId,
             Authentication authentication) {
 
         // Obtener el warehouse para validar el businessId
