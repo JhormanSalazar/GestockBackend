@@ -1043,11 +1043,7 @@ Este proyecto es un **MVP académico** desarrollado para Proyecto de Grado.
 ## 👥 Autores
 
 - **Equipo Gestock** - Proyecto de Grado 2025
-- Jhorman Andres Salazar Quiroz
-- Juan Jose Villa Avendaño
-- Valentina Ramirez Ocampo
-- Duber Andres Monsalve
-- Jose David Cardona Lujan
+
 ---
 
 ## 🙏 Agradecimientos
