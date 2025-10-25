@@ -21,6 +21,9 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
+    @Column(unique = true)
+    private String sku;
+
     @Column(nullable = false)
     private Double price;
 

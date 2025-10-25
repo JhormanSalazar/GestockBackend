@@ -9,11 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class WarehouseResponseDto {
-    private Long id;
+public class BusinessRequestDto {
     private String name;
-    private Long businessId;
-    private String businessName;
-    private String address;
-    private Integer maxCapacity;
 }

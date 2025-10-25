@@ -11,6 +11,8 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class WarehouseService {
     private final WarehouseRepository warehouseRepository;
     private final WarehouseMapper warehouseMapper;
     private final BusinessRepository businessRepository;
+    private final Logger logger = LoggerFactory.getLogger(WarehouseService.class);
 
     // Obtiene un almacen por su ID
     public WarehouseResponseDto getWarehouseById(Long id) {
@@ -49,10 +52,14 @@ public class WarehouseService {
 
         Warehouse warehouse = warehouseMapper.toEntityFromRequest(requestDto);
 
-        Business business = businessRepository.findById(requestDto.getBusinessId())
-                .orElseThrow(()-> new EntityNotFoundException("Business not found with ID: " + requestDto.getBusinessId()));
+    Business business = businessRepository.findById(requestDto.getBusinessId())
+        .orElseThrow(() -> new EntityNotFoundException("Business not found with ID: " + requestDto.getBusinessId()));
 
-        return warehouseMapper.toResponseDto(warehouseRepository.save(warehouse));
+    // Asignar el negocio a la entidad antes de persistir
+    warehouse.setBusiness(business);
+    logger.debug("Creating warehouse for business id {}: {}", business.getId(), warehouse.getName());
+
+    return warehouseMapper.toResponseDto(warehouseRepository.save(warehouse));
     }
 
     // Actualiza un almacen existente
@@ -66,6 +73,9 @@ public class WarehouseService {
         }
         if (requestDto.getAddress() != null) {
             existingWarehouse.setAddress(requestDto.getAddress());
+        }
+        if (requestDto.getMaxCapacity() != null) {
+            existingWarehouse.setMaxCapacity(requestDto.getMaxCapacity());
         }
 
         return warehouseMapper.toResponseDto(warehouseRepository.save(existingWarehouse));

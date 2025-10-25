@@ -13,7 +13,9 @@ import java.util.List;
 public interface UserMapper {
 
     // Mapear User entity a UserResponseDto
+    @Mapping(source = "business.id", target = "businessId")
     @Mapping(source = "business.name", target = "businessName")
+    @Mapping(source = "role.id", target = "roleId")
     @Mapping(source = "role.name", target = "roleName")
     UserResponseDto toResponseDto(User user);
 

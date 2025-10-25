@@ -11,5 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BusinessResponseDto {
     private Long id;
-    private Long name;
+    private String name;
 }

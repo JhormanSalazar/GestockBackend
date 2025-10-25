@@ -8,6 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +34,13 @@ public class BusinessController {
     @GetMapping("/{businessId}")
     public ResponseEntity<BusinessResponseDto> getBusinessById(@PathVariable Long businessId) {
         return ResponseEntity.ok(businessService.getBusinessById(businessId));
+    }
+
+    @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<BusinessResponseDto> createBusiness(@RequestBody com.gestock.GestockBackend.model.dto.BusinessRequestDto requestDto) {
+        BusinessResponseDto created = businessService.createBusiness(requestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 }
