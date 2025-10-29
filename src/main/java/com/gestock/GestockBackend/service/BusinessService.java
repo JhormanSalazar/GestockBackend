@@ -37,4 +37,12 @@ public class BusinessService {
         Business saved = businessRepository.save(business);
         return businessMapper.toResponseDto(saved);
     }
+
+    public void deleteBusiness(Long id) {
+        Business business = businessRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Negocio no encontrado con ID: " + id));
+
+        // Cascade delete will handle related entities (users, warehouses) thanks to @OneToMany mappings
+        businessRepository.delete(business);
+    }
 }

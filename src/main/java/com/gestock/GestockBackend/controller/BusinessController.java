@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,5 +43,13 @@ public class BusinessController {
     public ResponseEntity<BusinessResponseDto> createBusiness(@RequestBody com.gestock.GestockBackend.model.dto.BusinessRequestDto requestDto) {
         BusinessResponseDto created = businessService.createBusiness(requestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @DeleteMapping("/{businessId}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'BUSINESS_OWNER')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ResponseEntity<Void> deleteBusiness(@PathVariable Long businessId) {
+        businessService.deleteBusiness(businessId);
+        return ResponseEntity.noContent().build();
     }
 }
