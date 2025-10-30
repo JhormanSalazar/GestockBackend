@@ -82,9 +82,11 @@ public class WarehouseProductService {
         // Crear la entidad usando el mapper
         WarehouseProduct warehouseProduct = warehouseProductMapper.toEntity(requestDto);
 
-        // Asignar las entidades resueltas
+        // Asignar las entidades resueltas y los IDs de la clave compuesta
         warehouseProduct.setWarehouse(warehouse);
         warehouseProduct.setProduct(product);
+        warehouseProduct.setProductId(product.getId());
+        warehouseProduct.setWarehouseId(warehouse.getId());
 
         // Guardar y retornar como DTO
         WarehouseProduct savedWarehouseProduct = warehouseProductRepository.save(warehouseProduct);

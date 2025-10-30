@@ -15,8 +15,12 @@ public interface ProductMapper {
     List<ProductResponseDto> toResponseDtoList(List<Product> products);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "business", ignore = true)
+    @Mapping(target = "warehouseProducts", ignore = true)
     Product toEntity(ProductRequestDto productRequestDto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "business", ignore = true)
+    @Mapping(target = "warehouseProducts", ignore = true)
     void updateEntityFromDto(ProductRequestDto productRequestDto, @MappingTarget Product product);
 }

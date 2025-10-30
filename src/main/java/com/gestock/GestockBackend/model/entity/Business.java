@@ -29,4 +29,8 @@ public class Business {
     @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference(value = "business-warehouses")
     private List<Warehouse> warehouses;
+
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "business-products")
+    private List<Product> products;
 }

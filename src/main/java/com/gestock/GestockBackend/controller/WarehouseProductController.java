@@ -50,7 +50,7 @@ public class WarehouseProductController {
 
     // Crea un nuevo producto en un almacén
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'BUSINESS_OWNER')")
     public ResponseEntity<WarehouseProductResponseDto> createWarehouseProduct(
             @RequestBody WarehouseProductRequestDto request,
             Authentication authentication) {
@@ -59,9 +59,8 @@ public class WarehouseProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdWarehouseProduct);
     }
 
-    // Actualiza un producto en un almacén
+    // Actualiza un producto en un almacén (todos los roles autenticados - COLLABORATOR puede actualizar stock)
     @PutMapping("/{productId}/{warehouseId}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<WarehouseProductResponseDto> updateWarehouseProduct(
             @PathVariable Long productId,
             @PathVariable Long warehouseId,
@@ -74,7 +73,7 @@ public class WarehouseProductController {
 
     // Elimina un producto de un almacén
     @DeleteMapping("/{productId}/{warehouseId}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'BUSINESS_OWNER')")
     public ResponseEntity<Void> deleteWarehouseProduct(
             @PathVariable Long productId,
             @PathVariable Long warehouseId,
