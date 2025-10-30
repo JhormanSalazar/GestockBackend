@@ -1,10 +1,10 @@
 package com.gestock.GestockBackend.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -28,6 +28,11 @@ public class Product {
     private Double price;
 
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "business_id")
+    @JsonBackReference(value = "business-products")
+    private Business business;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<WarehouseProduct> warehouseProducts;

@@ -11,4 +11,5 @@ public class ProductRequestDto {
     private String sku;
     private Double price;
     private String description;
+    private Long businessId;
 }
