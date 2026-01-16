@@ -212,55 +212,8 @@ src/main/java/com/gestock/GestockBackend/
 ---
 
 ## 💾 Modelo de Datos
+![Modelo de Datos de Gestock](./docs/assets/gestock-db-diagram.png)
 
-### Diagrama Entidad-Relación Simplificado
-
-```
-┌─────────────┐         ┌──────────────┐         ┌──────────────┐
-│   BUSINESS  │────1:N──│     USER     │────N:1──│     ROLE     │
-│             │         │              │         │              │
-│ • id        │         │ • id         │         │ • id         │
-│ • name      │         │ • email      │         │ • name       │
-└─────────────┘         │ • password   │         └──────────────┘
-       │                │ • business_id│
-       │                │ • role_id    │
-       │                └──────────────┘
-       │
-       │ 1:N
-       │
-┌─────────────┐
-│  WAREHOUSE  │
-│             │
-│ • id        │
-│ • name      │
-│ • address   │
-│ • business_id│
-└─────────────┘
-       │
-       │ 1:N
-       │
-┌──────────────────┐         ┌──────────────┐
-│ WAREHOUSE_PRODUCT│────N:1──│   PRODUCT    │
-│                  │         │              │
-│ • product_id (PK)│         │ • id         │
-│ • warehouse_id(PK)│        │ • name       │
-│ • stock          │         │ • price      │
-└──────────────────┘         │ • description│
-       │                     └──────────────┘
-       │ 1:N
-       │
-┌─────────────────┐
-│   TRANSACTION   │
-│                 │
-│ • id            │
-│ • type          │ ◄── ENUM: ENTRADA/SALIDA
-│ • quantity      │
-│ • description   │
-│ • created_at    │
-│ • user_id       │
-│ • warehouseProduct (FK composite)
-└─────────────────┘
-```
 
 ### Entidades Principales
 
@@ -1042,7 +995,12 @@ Este proyecto es un **MVP académico** desarrollado para Proyecto de Grado.
 
 ## 👥 Autores
 
-- **Equipo Gestock** - Proyecto de Grado 2025
+- **Equipo Gestock** - Proyecto de Grado 2025 (CESDE)
+- Jhorman Andres Salazar Quiroz
+- Juan Jose Villa Avendaño
+- Jose David Cardona Lujan
+- Valentina Ocampo
+- Duber Andres Monsalve
 
 ---
 
@@ -1057,15 +1015,13 @@ Este proyecto es un **MVP académico** desarrollado para Proyecto de Grado.
 ## 📞 Soporte
 
 Para preguntas o reportar problemas:
-- 📧 Email: soporte@gestock.com
-- 🐛 Issues: [GitHub Issues](https://github.com/tu-usuario/gestock/issues)
+- 📧 Email: salazarjhorman181@gmail.com
+- 🐛 Issues: [GitHub Issues](https://github.com/JhormanSalazar/GestockBackend/issues)
 
 ---
 
 <div align="center">
 
 **⭐ Si este proyecto te fue útil, considera darle una estrella en GitHub ⭐**
-
-Hecho con ❤️ por el equipo de Gestock
 
 </div>
